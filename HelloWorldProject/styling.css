@@ -21,6 +21,19 @@
     text-align: center;
 }
 
+.surprise-button {
+    background-color: #fff;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    height: 30px;
+    width: 200px;
+}
+
+.surprise-button:hover {
+    background-color: #000;
+}
+
 .script-button {
     background-color: #000;
     color: #ffffff;
@@ -31,4 +44,29 @@
 
 .script-one {
     margin-right: 20px;
+}
+
+.surprise-div-base {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.surprise-button-container {
+    display: block;
+    text-align: center;
+}
+
+.surprise-div-hidden {
+    display: none;
+}
+
+.surprise-div-revealed {
+    background-color: #123454;
+    color: #fff;
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    width: 500px;
 }

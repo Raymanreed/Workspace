@@ -3,6 +3,11 @@
     <head>
         <link rel="stylesheet" href="styling.css">
         <script src="./scripts.js" async></script>
+        <script type="text/javascript">
+            window.onload = function(){
+                document.getElementById('secretButton').addEventListener('click', showHidden);
+            }
+        </script>
     </head>
     <body>
         <div class="doc-main">
@@ -21,21 +26,26 @@
 
             <div class="scripts-main">
                 <div class="script-one">
-                    <button class="script-button" onclick="">
+                    <button class="script-button" onclick="clickOtherButton()">
                         Hello
                     </button>
                 </div>
                 <div class="script-two">
-                    <button class="script-button" onclick="helloWorldFunc2()">
-                        Hello
+                    <button class="script-button" onclick="helloWorldFunc()">
+                        Hello from another world
                     </button>
                 </div>
-                <script>
-                    function helloWorldFunc() {
-                        alert("Hello World!");
-                    };
-                    async
-                </script>
+            </div>
+
+            <div class="surprise-div-base">
+                <div class="surprise-button-container">
+                    <button class="surprise-button" id="secretButton">
+                        Secret
+                    </button>
+                    <div class="surprise-div-hidden" id="hidden-div">
+                        You found me!
+                    </div>
+                </div>
             </div>
         </div>
     </body>
