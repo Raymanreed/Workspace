@@ -1,0 +1,18 @@
+.App {
+  height: 100vp;
+}
+
+.header-banner {
+  background-color: #7e0756;
+  border-bottom: 3px solid #000;
+  height: 100px;
+}
+
+.header-navigation {
+  background-color: #234234;
+  display: block;
+}
+
+.navigation-container {
+  display: flex;
+}
