@@ -10,10 +10,10 @@ export const NavigationBar = () => {
                     id="header.nav.home"
                     defaultMessage="Home" />
             </NavLink>
-            <NavLink className="nav-button" to="/prices">
+            <NavLink className="nav-button" to="/amenities">
                 <FormattedMessage
-                    id="header.nav.prices"
-                    defaultMessage="Prices" />
+                    id="header.nav.amenities"
+                    defaultMessage="Amenities" />
             </NavLink>
             <NavLink className="nav-button" to="/contact">
                 <FormattedMessage

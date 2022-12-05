@@ -8,7 +8,8 @@ import { flatten } from 'flat';
 import { HeaderComponent } from './components/header/headerComponent';
 import { ContactPage } from './components/content/pages/contactPage';
 import { HomePage } from './components/content/pages/homePage';
-import { PricesPage } from './components/content/pages/pricesPage';
+import { AmenitiesPage } from './components/content/pages/amenitiesPage';
+import { FooterComponent } from './components/content/footer/footerComponent';
 import { messagesEnglish } from './lib/intl/en-US';
 
 
@@ -24,12 +25,12 @@ const App = () => (
                 <div className="page-body">
                   <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path='/prices' element={<PricesPage />} />
+                    <Route path='/amenities' element={<AmenitiesPage />} />
                     <Route path='/contact' element={<ContactPage />} />
                   </Routes>
                 </div>
                 <div className="page-footer">
-                    
+                    <FooterComponent />
                 </div>
             </div>
             </BrowserRouter>

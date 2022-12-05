@@ -2,24 +2,31 @@ type Messages = {
     header: {
         nav: {
             home: string;
-            prices: string;
+            amenities: string;
             contact: string;
         };
-        text: string
+        text: string;
     };
     page: {
         home: {
             body: string;
         };
-        prices: {
+        amenities: {
             body: string;
         };
         contact: {
-            body: string;
+            header: string;
+            firstNameLabel: string;
+            lastNameLabel: string;
+            emailLabel: string;
+            buttonText: string;
         };
     };
     footer: {
-        text: string;
+        contact: {
+            emailAddress: string;
+            phoneNumber: string;
+        }
     };
 };
 
@@ -27,7 +34,7 @@ export const messagesEnglish: Messages = {
     header: {
         nav: {
             home: 'Home',
-            prices: 'Prices',
+            amenities: 'Amenities',
             contact: 'Contact',
         },
         text: "Emma's Interior Design",
@@ -36,14 +43,21 @@ export const messagesEnglish: Messages = {
         home: {
             body: 'Home',
         },
-        prices: {
-            body: 'Prices',
+        amenities: {
+            body: 'Amenities',
         },
         contact: {
-            body: 'Contact',
+            header: 'Contact Us',
+            firstNameLabel: 'First Name',
+            lastNameLabel: 'Last Name',
+            emailLabel: 'Email Address',
+            buttonText: 'Submit',
         },
     },
     footer: {
-        text: 'Footer Text',
+        contact: {
+            emailAddress: 'emmylouerickson@gmail.com',
+            phoneNumber: '(555)555-5555',
+        },
     },
 };
