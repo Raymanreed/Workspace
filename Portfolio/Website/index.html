@@ -15,21 +15,21 @@
         </header>
 
         <section class="image-section section">
-            <div class="image-container container">
-                Picture of person goes here
+            <div id="imageParent" class="image-container container">
+                <img id="Image" class="image-full" src="" alt="Image didn't display" />
+                <script>getImage()</script>
             </div>
-        </section>
-
-        <section class="name-section section">
             <div class="name-container container">
-                <h2 class="name-text">Name Goes here</h2>
+                <h2 id="Name" class="name-text"></h2>
+                <script>generateName()</script>
+                <h3 id="Lifetime" class="lifetime-text"></h3>
+                <script>generateLifetime()</script>
             </div>
         </section>
 
         <section class="obituary-section section">
             <div class="obituary-container container">
-                <h2>Services</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ultrices tincidunt.</p>
+                <h2>Forever in our hearts</h2>
             </div>
         </section>
 <!-- 
