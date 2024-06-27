@@ -14,6 +14,14 @@ body {
     padding-top: 20px;
 }
 
+.header-container {
+    padding-top: 0;
+}
+
+.image-full {
+    width: 20%;
+}
+
 header {
     background: #000;
     color: #fff;
