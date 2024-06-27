@@ -1,3 +1,6 @@
-Website should resemble a early 2000's/late 90's website. Very basic layout with almost stock looking images.
+Website should be a fake obituary page for a person who does not exist.
 
-Possibly a trades company? Plumbing, Electricians, contracting?
+Use thispersondoesnotexist.com for images
+Need to build a library of first names, last names, birth dates, death dates, and lifethings.
+Should utilize multiple templates to pull from and fill in appropriate details upon visting the page.
+Layout should be very basic (black background, white text, times new roman, etc.)
