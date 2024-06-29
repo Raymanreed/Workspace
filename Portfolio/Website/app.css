@@ -53,6 +53,12 @@ header {
     color: #fff;
 }
 
+.obituary-section {
+    margin: 0;
+    padding: 0;
+    padding-top: 0;
+}
+
 footer {
     text-align: center;
     padding: 10px;
