@@ -1,9 +1,10 @@
 'use client'
 
+import { generatedBasicButton } from "../components/buttonGenerator"
+
 interface buttonTestContent {
     content: any
     name: string
-    // type: "submit" | "reset" | "button" | undefined
     value: any
     // onClick(): any
     disabled?: boolean
@@ -33,6 +34,12 @@ export const basicClick = () => {
 }
 
 
-const generateButton = (someFunction: Function) => {
-
+export const generateButton = (buttonContent: any, handleClick: any) => {
+    console.log("Generating button")
+    return (
+        <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+            <p>Hello World</p>
+            {generatedBasicButton(buttonContent, handleClick)}
+        </div>
+    )
 }
