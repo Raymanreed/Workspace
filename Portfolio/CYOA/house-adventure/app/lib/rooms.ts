@@ -30,7 +30,29 @@ type Rooms = {
         id: number,
         description: string,
         connections: [
+            { roomName: string, nextRoom: number },
             { roomName: string, nextRoom: number }
+        ],
+        actions: [
+            { 
+                actionName: string,
+                actionId: string,
+                actionDescription: string
+            }
+        ]
+    },
+    basement: {
+        id: number,
+        description: string,
+        connections: [
+            { roomName: string, nextRoom: number }
+        ],
+        actions: [
+            { 
+                actionName: string,
+                actionId: string,
+                actionDescription: string
+            }
         ]
     },
     stairwell: {
@@ -46,6 +68,13 @@ type Rooms = {
         description: string,
         connections: [
             { roomName: string, nextRoom: number }
+        ],
+        actions: [
+            { 
+                actionName: string,
+                actionId: string,
+                actionDescription: string
+            }
         ]
     },
     upstairs: {
@@ -69,7 +98,29 @@ type Rooms = {
         id: number,
         description: string,
         connections: [
+            { roomName: string, nextRoom: number },
             { roomName: string, nextRoom: number }
+        ],
+        actions: [
+            { 
+                actionName: string,
+                actionId: string,
+                actionDescription: string
+            }
+        ]
+    },
+    masterBathroom: {
+        id: number,
+        description: string,
+        connections: [
+            { roomName: string, nextRoom: number }
+        ],
+        actions: [
+            { 
+                actionName: string,
+                actionId: string,
+                actionDescription: string
+            }
         ]
     },
     upstairsBathroom: {
@@ -113,15 +164,37 @@ export const rooms: Rooms = {
         id: 3,
         description: "You are in the kitchen of the house. Not much here.",
         connections: [
-            { roomName: "Dining Room", nextRoom: 2 }
+            { roomName: "Dining Room", nextRoom: 2 },
+            { roomName: "Basement", nextRoom: 11 }
+        ],
+        actions: [
+            {
+                actionName: "Unlock Basement",
+                actionId: "unlockBasement",
+                actionDescription: "You unlock the Basement"
+            }
+        ]
+    },
+    basement: {
+        id: 11,
+        description: "You are in the basement. It's dark and cool. You see a light at the far end.",
+        connections: [
+            { roomName: "Go back upstairs", nextRoom: 3 }
+        ],
+        actions: [
+            {
+                actionName: "Go towards the light",
+                actionId: "goTowardsLight",
+                actionDescription: "You step towards the light and are blinded"
+            }
         ]
     },
     stairwell: {
         id: 4,
         description: "You are climbing the stairs of the house.",
         connections: [
-            { roomName: "Living Room", nextRoom: 1 },
-            { roomName: "Upstairs", nextRoom: 6 }
+            { roomName: "Upstairs", nextRoom: 6 },
+            { roomName: "Living Room", nextRoom: 1 }
         ]
     },
     downstairsBathroom: {
@@ -129,16 +202,23 @@ export const rooms: Rooms = {
         description: "You are in the downstairs bathroom. Not much here.",
         connections: [
             { roomName: "Living Room", nextRoom: 1 }
+        ],
+        actions: [
+            {
+                actionName: "Take master bath key",
+                actionId: "acquireMasterBathKey",
+                actionDescription: "You pick up the key to the master bathroom."
+            }
         ]
     },
     upstairs: {
         id: 6,
         description: "You are in the upstairs of the house. Lots of rooms",
         connections: [
-            { roomName: "Go back downstairs", nextRoom: 1 },
             { roomName: "Kids Bedroom", nextRoom: 7 },
             { roomName: "Master Bedroom", nextRoom: 8 },
-            { roomName: "Bathroom", nextRoom: 9 }
+            { roomName: "Bathroom", nextRoom: 9 },
+            { roomName: "Go back downstairs", nextRoom: 1 }
         ]
     },
     kidsBedroom: {
@@ -152,7 +232,29 @@ export const rooms: Rooms = {
         id: 8,
         description: "You are in the master bedroom. So spacious!",
         connections: [
+            { roomName: "Master Bathroom", nextRoom: 10 },
             { roomName: "Exit", nextRoom: 6 }
+        ],
+        actions: [
+            {
+                actionName: "Unlock Master Bathroom",
+                actionId: "unlockMasterBathroom",
+                actionDescription: "You unlock the master bathroom with the key."
+            }
+        ]
+    },
+    masterBathroom: {
+        id: 10,
+        description: "You are in the master bathroom. Look at that claw tub!",
+        connections: [
+            { roomName: "Exit", nextRoom: 8 }
+        ],
+        actions: [
+            {
+                actionName: "Investigate the tub",
+                actionId: "acquireBasementKey",
+                actionDescription: "You look in the tub and find the key to the basement."
+            }
         ]
     },
     upstairsBathroom: {
