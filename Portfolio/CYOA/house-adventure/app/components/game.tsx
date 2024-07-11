@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ExploreHouse } from './story';
+import { GameCompleted } from './completion';
 
 const Game = () => {
     const [room, setRoom] = useState(0);
+    const [inventory, setInventory] = useState(Array<string>)
+    const [unlockedRooms, setUnlockedRooms] = useState(Array<number>)
     const [gameState, setGameState] = useState('')
 
-    const unlockedRooms = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const baseUnlockedRooms = [1,2,3,4,5,6,7,8,9]
 
     const handleChoice = (choice: any) => {
         if (!unlockedRooms.includes(choice.nextRoom)) {
@@ -21,31 +24,67 @@ const Game = () => {
     }
 
     const handleAction = (action: any) => {
-        if (action.actionId === "unlockMasterBathroom") {
-            unlockedRooms.push(10)
-            alert("You unlocked the master bathroom")
-            return
-        }
-        if (action.actionId === "unlockBasement") {
-            unlockedRooms.push(11)
-            alert("you unlockd the basement")
-            return
+        switch (action.actionId) {
+            case 'acquireMasterBathKey':
+                if (!inventory.includes("masterBathroomKey")) {
+                    inventory.push("masterBathroomKey")
+                }
+                alert("You picked up the key to the master bathroom.")
+                break;
+
+            case 'acquireBasementKey':
+                if (!inventory.includes("basementKey")) {
+                    inventory.push("basementKey")
+                }
+                alert("You picked up the key to the basement.")
+                break;
+
+            case 'unlockMasterBathroom':
+                if (inventory.includes("masterBathroomKey")) {
+                    unlockedRooms.push(10) 
+                    alert("You unlocked the master bathroom");
+                }
+                break;
+
+            case 'unlockBasement':
+                if (inventory.includes("basementKey")) {
+                    unlockedRooms.push(11)
+                    alert("You unlocked the basement");
+                }
+                break;
+
+            case 'goTowardsLight':
+                setGameState("complete")
+                break;
+
+            default:
+                break;
         }
     }
     
     const restartHouse = () => {
         setGameState('')
+        setInventory([])
+        setUnlockedRooms(baseUnlockedRooms)
         setRoom(0)
     }
 
+    useEffect(() => setUnlockedRooms(baseUnlockedRooms), [])
 
-    console.log("top level room: ", room)
+    console.log(inventory)
+
     return (
         <div className="items-center game-container">
-            <ExploreHouse onChoice={handleChoice} onAction={handleAction} roomId={room} />
-            <button onClick={restartHouse} className='mx-auto place-self-center'>
-                Restart
-            </button>
+            { gameState === 'complete' ?
+                <GameCompleted />
+            :
+                <ExploreHouse onChoice={handleChoice} onAction={handleAction} roomId={room} />
+            }
+            <div className='restart-button flex mt-4'>
+                <button onClick={restartHouse} className='mx-auto place-self-center p-2 rounded bg-sky-600'>
+                    Restart
+                </button>
+            </div>
         </div>
     )
 }
