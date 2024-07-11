@@ -9,7 +9,7 @@ interface RoomNavProps {
 
 const RoomNav = ({onChoice, onAction, roomId}: RoomNavProps) => {
     console.log("passed room: ", roomId)
-    const currentRoom = Object.values(rooms).find(r => r.id === roomId);
+    const currentRoom = Object.values(rooms).find(r => r.id === roomId) as any;
 
     if (currentRoom?.actions !== undefined) {
         const currentActions = currentRoom?.actions.map((action: any) => (
@@ -36,7 +36,7 @@ const RoomNav = ({onChoice, onAction, roomId}: RoomNavProps) => {
                     {currentRoom?.description}
                 </p>
                 <ul className="room-group-choices flex justify-center mx-auto space-x-1">
-                    {currentRoom?.connections.map((choice, index) => (
+                    {currentRoom?.connections.map((choice: any, index: any) => (
                         <li key={index} className="room-choices-item bg-indigo-800 rounded">
                             <button className="btn choice-btn text-center p-3" onClick={() => handleChoice(choice)}>
                                 {choice.roomName}
