@@ -11,24 +11,6 @@ const RoomNav = ({onChoice, onAction, roomId}: RoomNavProps) => {
     console.log("passed room: ", roomId)
     const currentRoom = Object.values(rooms).find(r => r.id === roomId) as any;
 
-    if (currentRoom?.actions !== undefined) {
-        const currentActions = currentRoom?.actions.map((action: any) => (
-            <li key="action" className='btn choice-btn text-center p-3'>
-                <button className="btn choice-btn text-center p-3"  onClick={() => handleAction(action)}>
-                    {action?.actionName}
-                </button>
-            </li>
-        ))
-    }
-    const handleChoice = (choice: any) => {
-        const nextRoom = choice.nextRoom;
-        onChoice(choice);
-    }
-
-    const handleAction = (action: any) => {
-        onAction(action);
-    }
-
     return (
         <div className="container flex mx-auto story-container justify-center">
             <div className="story-display min-w-96">
@@ -38,7 +20,7 @@ const RoomNav = ({onChoice, onAction, roomId}: RoomNavProps) => {
                 <ul className="room-group-choices flex justify-center mx-auto space-x-1">
                     {currentRoom?.connections.map((choice: any, index: any) => (
                         <li key={index} className="room-choices-item bg-indigo-800 rounded">
-                            <button className="btn choice-btn text-center p-3" onClick={() => handleChoice(choice)}>
+                            <button className="btn choice-btn text-center p-3" onClick={() => onChoice(choice)}>
                                 {choice.roomName}
                             </button>
                         </li>
@@ -48,7 +30,7 @@ const RoomNav = ({onChoice, onAction, roomId}: RoomNavProps) => {
                     <ul className="action-group-choices flex justify-center mx-auto space-x-1">
                         {currentRoom?.actions.map((action: any) => (
                             <li key="action" className='btn choice-btn text-center p-3'>
-                                <button className="btn choice-btn text-center p-3"  onClick={() => handleAction(action)}>
+                                <button className="btn choice-btn text-center p-3 bg-green-900 rounded"  onClick={() => onAction(action)}>
                                     {action?.actionName}
                                 </button>
                             </li>
