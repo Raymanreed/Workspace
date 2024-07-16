@@ -1,0 +1,21 @@
+.completion-container {
+    background: #000;
+    animation: fadeBackground 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeBackground {
+    from { background-color: #000; }
+    to { background-color: #fff; }
+}
+
+.completion-text-body-full {
+    color: #fff;
+    animation: fadeText 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeText {
+    from { color: #fff; }
+    to { color: #000; }
+}

@@ -80,7 +80,7 @@ const Game = () => {
             :
                 <ExploreHouse onChoice={handleChoice} onAction={handleAction} roomId={room} />
             }
-            <div className='restart-button flex mt-4'>
+            <div className='restart-button flex mt-20'>
                 <button onClick={restartHouse} className='mx-auto place-self-center p-2 rounded bg-sky-600'>
                     Restart
                 </button>
