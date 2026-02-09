@@ -2,8 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import App from '../App.tsx'
 import TestPage from '../pages/testPages.tsx'
 import NestedTestPage from '../pages/nestedTestPage.tsx'
-import AnotherNestedTestPage from '../pages/anotherNestedTestPage.tsx'
+import StoryHome from '../pages/stories/storyHome.tsx'
 import BasePage from "../pages/basePage.tsx";
+import TestStoryPage from "../pages/stories/testStoryPage.tsx";
+import ProjectHome from "../pages/projects/projectHome.tsx";
 
 function PageNavigation() {
     return (
@@ -14,7 +16,13 @@ function PageNavigation() {
                         <Route index element={<BasePage />} />
                         <Route path="test" element={<TestPage />} />
                         <Route path="nested" element={<NestedTestPage />} />
-                        <Route path="anotherNested" element={<AnotherNestedTestPage />} />
+                        <Route path="stories">
+                            <Route index element={<StoryHome />} />
+                            <Route path="test-story" element={<TestStoryPage />} />
+                        </Route>
+                        <Route path="projects">
+                            <Route index element={<ProjectHome />} />
+                        </Route>
                     </Route>
                 </Routes>
             </BrowserRouter>
