@@ -19,8 +19,13 @@ function Headband() {
                 </NavLink>
             </h5>
             <h5>
-                <NavLink to="anotherNested">
-                    Another Nested Page
+                <NavLink to="stories">
+                    Stories
+                </NavLink>
+            </h5>
+            <h5>
+                <NavLink to="projects">
+                    Projects
                 </NavLink>
             </h5>
         </nav>
