@@ -23,6 +23,15 @@ body {
   width: 100vw;
 }
 
+.resume-renderContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.resume-main-view {
+  background-color: unset !important;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
