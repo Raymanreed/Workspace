@@ -1,0 +1,32 @@
+import { useState } from "react";
+
+function LoopDemoPage() {
+    const [forEachDemoOutput, setForEachDemoOutput] = useState<string>()
+    const forEachDemoData = ["apple", "orange", "banana"];
+    const forEachDemo = (demoData: Array<string>) => {
+        const demoArray: string[] = [];
+        demoData.forEach((element) => {
+            demoArray.push(element.toUpperCase())
+        })
+        setForEachDemoOutput(demoArray.join(", "))
+        return;
+    };
+
+    return (
+        <div>
+            <h3>
+                This is a page to showcase various loops and iterations.
+            </h3>
+            <div>
+                <h4>
+                    forEach:
+                </h4>
+                <p>Here's the words we'll be modifying: apple, orange, banana</p>
+                <button onClick={() => forEachDemo(forEachDemoData)}>Capitalize!</button>
+                <p>{forEachDemoOutput}</p>
+            </div>
+        </div>
+    )
+};
+
+export default LoopDemoPage;

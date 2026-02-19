@@ -6,6 +6,7 @@ import StoryHome from '../pages/stories/storyHome.tsx'
 import BasePage from "../pages/basePage.tsx";
 import TestStoryPage from "../pages/stories/testStoryPage.tsx";
 import ProjectHome from "../pages/projects/projectHome.tsx";
+import LoopDemoPage from "../pages/projects/loopingDemoPage.tsx";
 
 function PageNavigation() {
     return (
@@ -22,6 +23,7 @@ function PageNavigation() {
                         </Route>
                         <Route path="projects">
                             <Route index element={<ProjectHome />} />
+                            <Route path="loops" element={<LoopDemoPage />} />
                         </Route>
                     </Route>
                 </Routes>

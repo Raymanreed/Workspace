@@ -10,6 +10,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 function BasePage() {
     const [displayResume, setDisplayResume] = useState<Boolean>(false);
+
     return (
         <>
             <h2>This is the base page</h2>
@@ -28,7 +29,7 @@ function BasePage() {
                     </Document>
                 </div>
             }
-            <a href={resume} target="_blank">Open in a new page</a>
+            <a href={resume} download>Download</a>
         </>
     )
 }
