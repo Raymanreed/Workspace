@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function LoopDemoPage() {
     const [forEachDemoOutput, setForEachDemoOutput] = useState<string>()
+    const [mapDemoOutput, setMapDemoOutput] = useState<string>()
     const forEachDemoData = ["apple", "orange", "banana"];
     const forEachDemo = (demoData: Array<string>) => {
         const demoArray: string[] = [];
@@ -9,6 +10,11 @@ function LoopDemoPage() {
             demoArray.push(element.toUpperCase())
         })
         setForEachDemoOutput(demoArray.join(", "))
+        return;
+    };
+    const mapDemo = (mapDemoData: Array<number>) => {
+        const multipliedData = mapDemoData.map((x) => x * 5)
+        setMapDemoOutput(JSON.stringify(multipliedData, null, ' '))
         return;
     };
 
@@ -24,6 +30,14 @@ function LoopDemoPage() {
                 <p>Here's the words we'll be modifying: apple, orange, banana</p>
                 <button onClick={() => forEachDemo(forEachDemoData)}>Capitalize!</button>
                 <p>{forEachDemoOutput}</p>
+            </div>
+            <div>
+                <h4>
+                    map:
+                </h4>
+                <p>We'll be multiplying these numbers by 5: 2, 4, 6, 8</p>
+                <button onClick={() => mapDemo([2, 4, 6, 8])}>Multiply!</button>
+                <p>{mapDemoOutput}</p>
             </div>
         </div>
     )
