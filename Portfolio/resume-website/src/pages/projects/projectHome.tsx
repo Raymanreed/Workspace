@@ -7,6 +7,7 @@ function ProjectHome() {
             <div>
                 <h3>
                     <NavLink to="loops">Loops and iteration demo's</NavLink>
+                    <NavLink to="memorial">RIP</NavLink>
                 </h3>
             </div>
         </div>
