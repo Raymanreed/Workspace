@@ -33,7 +33,6 @@ function FauxMemorial() {
                 monthGen.includes(10)) {
                 dayMax = dayRanges.maxB
             }
-
             return (Math.floor(Math.random() * (dayMax - dayRanges.min + 1) + dayRanges.min));
         };
         return [`${monthArray[monthGen[0]]} ${dayGen()}, ${yearGen[0]}`, `${monthArray[monthGen[1]]} ${dayGen()}, ${yearGen[1]}`];
@@ -46,7 +45,6 @@ function FauxMemorial() {
             <div>
                 <img src="https://thispersondoesnotexist.com/" alt="Loading..." decoding="async" height={300} width={300} />
             </div>
- 
             <h3>{generateMonthDayYear().join(' - ')}</h3>
         </div>
     )
