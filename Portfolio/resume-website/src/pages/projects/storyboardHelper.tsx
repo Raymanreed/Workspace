@@ -1,33 +1,24 @@
 import { useState } from "react";
 
 function StoryboardTool() {
-    // const [generatedElements, setGeneratedElements] = useState()  
-    const generatedNumbers: number[] = []
-    const displayArray: any[] = []
+    const [generatedElements, setGeneratedElements] = useState<number[]>([])  
 
     const generateNewPortion = () => {
-        (function(n) {
-            return function() {
-                n+=1;
-                return generatedNumbers.push(n);
-            }
-        }(0))
-        const areaWithSelect = (
-            <div>
-                <textarea name={`textarea-${generatedNumbers.at(-1)}`} rows={8} cols={30} wrap="soft" />
-            </div>
-        );
+        const generatedNumbers: number[] = [];
+        let tally = 0;
+        ++tally
         console.log("running")
-        displayArray.push(areaWithSelect)
-        return areaWithSelect;
+        generatedNumbers.push(tally)
+        console.log(generatedNumbers)
+        return setGeneratedElements(generatedNumbers);
     };
-    console.log(displayArray)
-
-    return(
+    return (
         <div>
-            <button onClick={() => generateNewPortion()}>Generate!</button>
+            <button onClick={generateNewPortion}>Generate!</button>
             <div>
-                {displayArray}
+                {generatedElements.map((num) =>
+                    <h2>{num}</h2>
+                )}
             </div>
         </div>
     );
