@@ -1,24 +1,47 @@
 import { useState } from "react";
 
-function StoryboardTool() {
-    const [generatedElements, setGeneratedElements] = useState<number[]>([])  
+const options = [
+    { value: "andThen", label: "And then..."},
+    { value: "but", label: "But..."},
+    { value: "however", label: "However..." },
+    { value: "end", label: "The End"}
+]
 
-    const generateNewPortion = () => {
-        const generatedNumbers: number[] = [];
-        let tally = 0;
-        ++tally
-        console.log("running")
-        generatedNumbers.push(tally)
-        console.log(generatedNumbers)
-        return setGeneratedElements(generatedNumbers);
+function StoryboardTool() {
+    const [generatedElements, setGeneratedElements] = useState<number[]>([1]);
+    const savedSelectValues: any[] = [];
+
+    const generateContinuation = () => {
+        // @ts-expect-error
+        const continuation = generatedElements.at(-1) + 1;
+        setGeneratedElements(generatedElements => [...generatedElements, continuation]);
+        return;
+    }
+
+    const handleSelectChoice = (event: any) => {
+        savedSelectValues.push(event.target.value);
+        return;
     };
+
     return (
         <div>
-            <button onClick={generateNewPortion}>Generate!</button>
             <div>
                 {generatedElements.map((num) =>
-                    <h2>{num}</h2>
+                    <>
+                        <h2>{num}</h2>
+                        <div>
+                            <textarea rows={3} cols={50} id={`id-${num}`} />
+                            <select value={ savedSelectValues[num]} onChange={handleSelectChoice}>
+                                {options.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </>
                 )}
+                <button onClick={generateContinuation}>Continue</button>
             </div>
         </div>
     );
