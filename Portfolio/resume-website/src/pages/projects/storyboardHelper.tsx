@@ -33,9 +33,12 @@ function StoryboardTool() {
                             <textarea rows={3} cols={50} id={`id-${num}`} />
                             <select value={ savedSelectValues[num]} onChange={handleSelectChoice}>
                                 {options.map((option) => (
+                                    option.value !== 'end' ?
                                     <option key={option.value} value={option.value}>
                                         {option.label}
                                     </option>
+                                    :
+                                    <>{console.log(savedSelectValues)}</>
                                 ))}
                             </select>
                         </div>
