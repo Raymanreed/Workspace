@@ -9,17 +9,18 @@ const options = [
 
 function StoryboardTool() {
     const [generatedElements, setGeneratedElements] = useState<number[]>([1]);
-    const savedSelectValues: any[] = [];
+    const [selectedChoices, setSelectedChoices] = useState<string[]>([]);
 
     const generateContinuation = () => {
         // @ts-expect-error
         const continuation = generatedElements.at(-1) + 1;
         setGeneratedElements(generatedElements => [...generatedElements, continuation]);
+        console.log(selectedChoices)
         return;
     }
 
-    const handleSelectChoice = (event: any) => {
-        savedSelectValues.push(event.target.value);
+    const handleSelectChoice = (e: any) => {
+        setSelectedChoices(selectedChoices => [...selectedChoices, e.target.value]);
         return;
     };
 
@@ -31,14 +32,11 @@ function StoryboardTool() {
                         <h2>{num}</h2>
                         <div>
                             <textarea rows={3} cols={50} id={`id-${num}`} />
-                            <select value={ savedSelectValues[num]} onChange={handleSelectChoice}>
+                            <select value={selectedChoices} onChange={handleSelectChoice}>
                                 {options.map((option) => (
-                                    option.value !== 'end' ?
                                     <option key={option.value} value={option.value}>
                                         {option.label}
                                     </option>
-                                    :
-                                    <>{console.log(savedSelectValues)}</>
                                 ))}
                             </select>
                         </div>
