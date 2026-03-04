@@ -32,6 +32,26 @@ body {
   background-color: unset !important;
 }
 
+.storyboardCentering {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.storybardSegmentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.linkingDropdown {
+  align-self: flex-end;
+  width: 15%;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

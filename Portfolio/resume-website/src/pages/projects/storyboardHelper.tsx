@@ -26,13 +26,13 @@ function StoryboardTool() {
 
     return (
         <div>
-            <div>
+            <div className="storyboardCentering">
                 {generatedElements.map((num) =>
                     <>
                         <h2>{num}</h2>
-                        <div>
-                            <textarea rows={3} cols={50} id={`id-${num}`} />
-                            <select value={selectedChoices} onChange={handleSelectChoice}>
+                        <div className="storybardSegmentContainer">
+                            <textarea rows={5} cols={50} id={`id-${num}`} />
+                            <select value={selectedChoices[-1]} onChange={handleSelectChoice} className="linkingDropdown">
                                 {options.map((option) => (
                                     <option key={option.value} value={option.value}>
                                         {option.label}
@@ -42,7 +42,7 @@ function StoryboardTool() {
                         </div>
                     </>
                 )}
-                <button onClick={generateContinuation}>Continue</button>
+                <button onClick={generateContinuation} className="generateNewStoryboardSegment">Continue</button>
             </div>
         </div>
     );
